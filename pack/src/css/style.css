@@ -1,0 +1,214 @@
+
+.border_style {
+  border: 1px solid rgba(0, 197, 212, 0.5);
+  background-color: rgba(37, 98, 174, 0.08);
+  border-radius: 0.32vh;
+}
+.subtitle {
+  width: 100%;
+  height: 4.21vh;
+  line-height: 4.21vh;
+  border-bottom: 1px solid rgba(0, 197, 212, 0.5);
+  padding-left: 0.52vw;
+  background-color: rgba(2, 57, 113, 0.8);
+}
+.subtitle > .subtitle_info {
+  display: inline-block;
+  font-size: 0.94vw;
+  font-weight: normal;
+  margin-left: 0.26vw;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background: url("../images/background2.jpg") no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+}
+.wrapper > .header {
+  width: 100%;
+  height: 6.67vh;
+  background-color: #05347c;
+  /*background: url("../../images/nav/bg.png") no-repeat;*/
+  background-size: 100% 6.67vh;
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper > .header #logo {
+  display: inline-block;
+  width: 17.08vw;
+  height: 6.67vh;
+  position: relative;
+  vertical-align: top;
+}
+.wrapper > .header #logo > .logo_pic {
+  width: 17.08vw;
+  height: 6.67vh;
+  background: url("../images/logo.png") no-repeat;
+  background-size: 100%;
+}
+.wrapper > .header #logo > .web_title {
+  text-indent: -9999vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wrapper > .header .nav {
+  display: inline-block;
+  height: 6.67vh;
+  margin-left: 1.56vw;
+}
+.wrapper > .header .nav > ul {
+  height: 100%;
+  overflow: hidden;
+}
+.wrapper > .header .nav > ul > li {
+  display: block;
+  float:left;
+  height: 100%;
+  position: relative;
+  width: 6.47vw;
+}
+.wrapper > .header .nav > ul > li > .line {
+  position: absolute;
+  width: 0;
+  height: 0.421053vh;
+  background-color: #5492fb;
+}
+.wrapper > .header .nav > ul > li > .menu {
+  display: block;
+  height: 84%;
+  text-align: center;
+  line-height: 6.67vh;
+  padding: 0 0.78vw;
+  font-size: 1.15vw;
+}
+.wrapper > .header .nav > ul > li > .menu > label {
+  cursor: pointer;
+}
+.wrapper > .header .nav > ul > li > .menu > i {
+  margin-left: 0.31vw;
+}
+.wrapper > .header .nav > ul > li > .submenu {
+  display: none;
+  width: 100%;
+  background-color: #002451;
+  position: absolute;
+  top: 6.67vh;
+  left: 0;
+  z-index: 999;
+}
+.wrapper > .header .nav > ul > li > .submenu > a {
+  display: block;
+  font-size: 0.94vw;
+  padding: 0 0.52vw;
+  height: 5.26vh;
+  line-height: 5.26vh;
+}
+.wrapper > .header .nav > ul > li > .submenu > a:hover {
+  background-color: #1296db;
+}
+.wrapper > .header .nav > ul > li.dropdown {
+  background-color:transparent;
+}
+.wrapper > .header .nav > ul > li.dropdown > .submenu {
+  display: block;
+}
+.wrapper > .header .nav > ul > li.dropdown > .line {
+  width: 100%;
+}
+.wrapper > .header .nav > ul > li.active {
+  width: 6.47vw;
+  background-color: #05347c;
+}
+.wrapper > .header .nav > ul > li.active label {
+  color:#b2cfff;
+}
+.wrapper > .header .nav > ul > li.active > .line {
+  width: 100%;
+}
+/*.wrapper > .header .nav > ul > li:hover {*/
+/*background-color: #002451;*/
+/*}*/
+.wrapper > .header .nav > ul > li:hover > .line {
+  width: 100%;
+  transition: width 1s;
+}
+.wrapper > .header > .person {
+  cursor: pointer;
+  width:6.07vw;
+  height: 6.67vh;
+  position: relative;
+}
+.wrapper > .header > .person > .user_name {
+  font-size: 1.15vw;
+  height: 100%;
+  line-height: 6.67vh;
+  padding-left: 1vw;
+  padding-top: 0.4vh;
+  color:#fff;
+}
+.wrapper > .header > .person > .user_dropdown {
+  position: absolute;
+  display: none;
+  z-index: 99;
+}
+.wrapper > .header > .person > .user_dropdown > li {
+  font-size: 1.04vw;
+  width: 8.07vw;
+  padding: 0.53vh 0.52vw;
+  background-color: #00142d;
+}
+.wrapper > .header > .person > .user_dropdown > li > i {
+  margin-right: 0.52vw;
+}
+.wrapper > .header > .person > .user_dropdown > li:hover {
+  background-color: #1296db;
+}
+.wrapper > .main_container {
+  width: 100%;
+  height: 92.63vh;
+  padding: 1.05vh;
+  /*display: flex;*/
+}
+.wrapper > .main_container > .left_container {
+  width: 62.81vw;
+  height: 100%;
+  position: relative;
+}
+.wrapper > .main_container > .right_container {
+  width: 35.63vw;
+  height: 100%;
+  margin-left: 1.05vh;
+  position: relative;
+}
+
+
+/*下面*/
+
+.external{
+  height:92%;
+}
+.navigation{
+  background: rgba(27,41,90,0.4);
+}
+
+.loginPage{
+  height:100%
+}
+
+.user_interface{
+  background: #2d8cf0;
+  display: none;
+}
+.user_interface li{
+  color:#fff;
+  padding: 0.7vh 0;
+  font-size: 0.85vw;
+  text-align: center;
+}
+
+.user_interface li:hover{
+  background: #00B7FF;
+}
+

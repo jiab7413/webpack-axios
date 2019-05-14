@@ -1,11 +1,154 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cesiumjs.org/releases/1.51/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesiumjs.org/releases/1.51/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        *{
+        margin:0;
+                padding:0;
+        }
+        html,body{
+            height:100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="cesiumContainer"></div>
+</body>
 </html>
+<script>
+Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyYjk0MjdkOC0yNDg5LTRhY2MtYTQyYS02YjJkMDgyMzBjMTkiLCJpZCI6MTA4NzcsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NTc2NjQ4NTB9.XPs2iRTxq5wjD7AI-dAgaQF1iialsF__QRxiRMpmWwo'
+    var viewer = new Cesium.Viewer('cesiumContainer',{
+         /**
+                 animation: false, //是否显示动画控件
+                 shouldAnimate : true,
+                 homeButton: false, //是否显示Home按钮
+                 baseLayerPicker: false, //是否显示图层选择控件
+                 geocoder: false, //是否显示地名查找控件
+                 timeline: true, //是否显示时间线控件
+                 sceneModePicker: true, //是否显示投影方式控件
+                 navigationHelpButton: true, //是否显示帮助信息控件
+                 infoBox: true, //是否显示点击要素之后显示的信息
+                 requestRenderMode: true, //启用请求渲染模式
+                 scene3DOnly: true, //每个几何实例将只能以3D渲染以节省GPU内存
+                 sceneMode: 3, //初始场景模式 1 2D模式 2 2D循环模式 3 3D模式  Cesium.SceneMode
+                 fullscreenElement: document.body //全屏时渲染的HTML元素 暂时没发现用处**/
+                baseLayerPicker: false,
+                animation: false,
+                geocoder: false,
+                homeButton: false,
+                infoBox: false,
+                selectionIndicator : true,
+                timeline: false,
+                shadows : false,
+                scene3DOnly: false,
+                fullscreenButton: false, //是否显示全屏按钮
+                navigationHelpButton: false,
+                //mapMode2D:Cesium.MapMode2D.ROTATE,//加上了导致线路不能出来
+                shouldAnimate : true,//倒影
+                sceneMode: 3, //初始场景模式 1 2D模式 2 2D循环模式 3 3D模式  Cesium.SceneMode
+                navigationInstructionsInitiallyVisible: false,
+                terrainProvider : new this.Cesium.CesiumTerrainProvider({
+                          url: Cesium.IonResource.fromAssetId(1)
+                        })
+    });
+    viewer._cesiumWidget._creditContainer.style.display="none";
+    viewer.entities.add({
+            id:'tdbz_shandong',
+            name : 'tdbz_shandong',
+            position : Cesium.Cartesian3.fromDegrees(115.846026,35.231373),
+    		label : { //文字标签
+    					text : '山东省',
+    					font : '15pt 微软雅黑',
+    					fillColor :Cesium.Color.GAINSBORO,
+    					style : Cesium.LabelStyle.FILL,
+    					outlineWidth : 2,
+    					verticalOrigin : Cesium.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置
+    					pixelOffset : new Cesium.Cartesian2( 0, -9 )   //偏移量
+    				}
+    	});
+
+    	viewer.entities.add({
+            id:'tdbz_zhejiang',
+            name : 'tdbz_zhejiang',
+            position : Cesium.Cartesian3.fromDegrees(119.415101,29.746364),
+    		label : { //文字标签
+    					text : '浙江省',
+    					font : '15pt 微软雅黑',
+    					fillColor :Cesium.Color.GAINSBORO,
+    					style : Cesium.LabelStyle.FILL,
+    					outlineWidth : 2,
+    					verticalOrigin : Cesium.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置
+    					pixelOffset : new Cesium.Cartesian2( 0, -9 )   //偏移量
+    				}
+    	});
+
+    	viewer.entities.add({
+            id:'tdbz_jiangxi',
+            name : 'tdbz_jiangxi',
+            position : Cesium.Cartesian3.fromDegrees(116.688852,29.243376),
+    		label : { //文字标签
+    					text : '江西省',
+    					font : '15pt 微软雅黑',
+    					fillColor :Cesium.Color.GAINSBORO,
+    					style : Cesium.LabelStyle.FILL,
+    					outlineWidth : 2,
+    					verticalOrigin : Cesium.VerticalOrigin.BOTTOM, //垂直方向以底部来计算标签的位置
+    					pixelOffset : new Cesium.Cartesian2( 0, -9 )   //偏移量
+    				}
+    	});
+  //定位南澳岛-start
+      var nanaodao_entity_data= [117.116014,33.509028,117.68633,30.754139,117.116014,30.148427,118.679784,30.276261];
+  	nanaodao_entity = new Cesium.Entity({
+  		name : 'Orange line with black outline at height and following the surface',
+  		polygon : {
+  			hierarchy : new Cesium.PolygonHierarchy(Cesium.Cartesian3.fromDegreesArray(nanaodao_entity_data)),
+  			outline : true,
+  			outlineColor :Cesium.Color.TRANSPARENT,
+  			outlineWidth : 4,
+  			 material : Cesium.Color.fromRandom({alpha : 0.0})
+  		}
+  	});
+  	viewer.entities.add(nanaodao_entity);
+
+  	viewer.flyTo(nanaodao_entity, {
+              offset : {
+                  heading : Cesium.Math.toRadians(0.0),
+                  pitch : Cesium.Math.toRadians(-25)
+              },
+  			duration:5, // 设置飞行持续时间，默认会根据距离来计算
+  			 complete: function () {
+              // 到达位置后执行的回调函数
+              console.log('到达目的地');
+  			},
+  			cancle: function () {
+  				// 如果取消飞行则会调用此函数
+  				console.log('飞行取消')
+  			}
+  			//pitchAdjustHeight: 0, // 如果摄像机飞越高于该值，则调整俯仰俯仰的俯仰角度，并将地球保持在视口中。
+  			//maximumHeight:5000, // 相机最大飞行高度
+  			//flyOverLongitude: 100, // 如果到达目的地有2种方式，设置具体值后会强制选择方向飞过这个经度
+      });
+      var scene = viewer.scene;
+      scene.globe.depthTestAgainstTerrain = true;
+
+      if (!scene.sampleHeightSupported) {
+          console.log('This browser does not support sampleHeight.');
+      }
+
+      var longitude = -2.1480545852753163;
+      var latitude = 0.7688240036937101;
+      var range = 0.000002;
+      var duration = 4.0;
+
+      var entity = viewer.entities.add({
+          position : Cesium.Cartesian3.fromRadians(longitude, latitude),
+          model : {
+              uri : '/Apps/SampleData/models/CesiumGround/car.glb'
+          }
+      });
+      viewer.trackedEntity = entity;
+</script>

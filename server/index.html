@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cesiumjs.org/releases/1.51/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesiumjs.org/releases/1.51/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            height:100%;
+        }
+    </style>
+</head>
+<body>
+<div id="cesiumContainer"></div>
+</body>
+</html>
+<script>
+    var viewer = new Cesium.Viewer('cesiumContainer', {
+        terrainProvider: Cesium.createWorldTerrain()
+    });
+
+    var tileset = new Cesium.Cesium3DTileset({
+        url: Cesium.IonResource.fromAssetId(6074)
+    });
+
+    viewer.scene.primitives.add(tileset);
+    viewer.zoomTo(tileset);
+
+
+</script>
